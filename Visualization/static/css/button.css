@@ -1,0 +1,29 @@
+
+.button-unselected {
+    color: gray;
+    background-color: #29273D;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+
+.button-selected {
+    background-color: #EDDF5C;
+    color: black;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+
+
+
+.div-hidden {
+    width:100%;
+    height:100%;
+    float:right;
+    display: none;
+}
+
+.div-show {
+    width:100%;
+    height:100%;
+    float:right;
+}

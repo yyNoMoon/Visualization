@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+
+</head>
+<body>
+
+<h2>牛客-剑指Offer</h2>
+<button type="button" name="11">开始</button>
+<button type="button" name="12">暂停</button>
+<button type="button" name="13">结束</button>
+<br>
+<textarea id="14" name="14" rows="20" cols="60"></textarea>
+<h2>牛客-计算机考研复试</h2>
+<button type="button" name="21">开始</button>
+<button type="button" name="22">暂停</button>
+<button type="button" name="23">结束</button>
+<br>
+<textarea id="24" name="24" rows="20" cols="60"></textarea>
+<script>
+var clock="";
+var nums=120;
+var t=0
+var timer_dict=[]
+var timer_falg_dict=[]
+var first_init_timer_flag=[]
+first_init_timer_flag[1]=0
+first_init_timer_flag[2]=0
+function showStartAuto(idw){
+	// console.log(idw)
+	// console.log(idw.target.name)
+	// console.log(t)
+	var temp_choose_button_id=0
+	var temp_sequence_buttons_id=0
+	temp_sequence_buttons_id=Math.floor(Number(idw.target.name)/10)
+	// temp_choose_button_id=Math.floor(Number(idw.target.name)%10)
+	var text_area_id=0
+	text_area_id=temp_sequence_buttons_id*10+4
+	text_area_id+=""
+	// if (temp_sequence_buttons_id==1)
+	// {
+	$.get({url:"/button_callback",data:idw.target.name,success:function(data,status){
+			data=JSON.parse(data)
+            if(data.function_message[temp_sequence_buttons_id]=="OVER")
+            {
+                clearInterval(timer_dict[temp_sequence_buttons_id])
+            }
+			// console.log(data)
+			var text=$("#"+text_area_id).val()
+			$("#"+text_area_id).val(text+"\r"+data.function_message[temp_sequence_buttons_id])
+		}})
+	var scrolltop=$("#"+text_area_id)[0].scrollHeight
+	$("#"+text_area_id).scrollTop(scrolltop)
+		// console.log(idw)
+		// console.log(idw.target.name)
+		// t=setInterval(showAuto(idw),10000)
+	// }
+	// if (idw.target.name=="21")
+	// {
+	// 	$.get({url:"/button_callback",data:idw.target.name,success:function(data,status){
+	// 		data=JSON.parse(data)
+	// 		var text=$("#24").val()
+	// 		$("#24").val(text+"\r"+data.function_message)
+	// 	}})
+	// 	// console.log(idw)
+	// 	// console.log(idw.target.name)
+	// 	// t=setInterval(showAuto(idw),3000)
+	// }
+}
+$("button").click(function (idw){
+		// console.log(idw)
+		// console.log(idw.target.name)
+		// console.log($("button"))
+		var temp_choose_button_id=0
+		var temp_sequence_buttons_id=0
+		temp_sequence_buttons_id=Math.floor(Number(idw.target.name)/10)
+		temp_choose_button_id=Math.floor(Number(idw.target.name)%10)
+		// console.log(temp_choose_button_id)
+		if (temp_choose_button_id==2)
+			{
+				
+				if (timer_dict[temp_sequence_buttons_id] &&timer_falg_dict[temp_sequence_buttons_id]==1)
+				{
+					timer_falg_dict[temp_sequence_buttons_id]=0
+					clearInterval(timer_dict[temp_sequence_buttons_id])
+				}
+				
+			}
+		if (temp_choose_button_id==3)
+			{
+				// console.log(timer_dict[temp_sequence_buttons_id])
+				if (timer_dict[temp_sequence_buttons_id]&&timer_falg_dict[temp_sequence_buttons_id]==1)
+				{
+					timer_falg_dict[temp_sequence_buttons_id]=0
+					clearInterval(timer_dict[temp_sequence_buttons_id])
+				}
+			}
+		$.get({url:"/button_callback",data:idw.target.name,success:function(data,status){
+			// "\n状态: " + status
+			// $("button").val(data+"\r");
+			// console.log(time)
+			// console.log(JSON.parse(data))
+			data=JSON.parse(data)
+			// console.log(data.message)
+			// console.log(data.function_message)
+			// clock=setInterval(countDown,1000)//一秒执行一次
+			
+			var text_area_id=0
+			text_area_id=temp_sequence_buttons_id*10+4
+			text_area_id+=""
+			// console.log(temp_sequence_buttons_id)
+			// console.log(temp_sequence_buttons_id*10)
+			// console.log(text)
+			
+			// console.log(text_area_id)
+			// if (temp_sequence_buttons_id==1)
+			// {
+			var text_area=$("#"+text_area_id).val()
+			if (text_area!="")
+			{
+				$("#"+text_area_id).val(text_area+"\r"+data.message+"\r"+data.function_message[temp_sequence_buttons_id])
+			}else{
+				$("#"+text_area_id).val(data.message+"\r"+data.function_message[temp_sequence_buttons_id])
+			}
+			if (temp_choose_button_id==1)
+			{
+				
+				if (!timer_dict[temp_sequence_buttons_id]&&first_init_timer_flag[temp_sequence_buttons_id]==0)
+				{
+					first_init_timer_flag[temp_sequence_buttons_id]=first_init_timer_flag[temp_sequence_buttons_id]+1
+					timer_falg_dict[temp_sequence_buttons_id]=1
+					timer_dict[temp_sequence_buttons_id]=setInterval(function(){showStartAuto(idw)},2000)
+				}
+				if (timer_falg_dict[temp_sequence_buttons_id]==0)
+				{
+					timer_falg_dict[temp_sequence_buttons_id]=1
+					timer_dict[temp_sequence_buttons_id]=setInterval(function(){showStartAuto(idw)},2000)
+				}
+				// if (timer_dict[temp_sequence_buttons_id]==0)
+				// {
+				// 	timer_dict[temp_sequence_buttons_id]=setInterval(function(){showStartAuto(idw)},1500)
+				// }
+
+			}
+			var scrolltop=$("#"+text_area_id)[0].scrollHeight
+			$("#"+text_area_id).scrollTop(scrolltop)
+				
+			// }
+			// else{
+			// 	var text=$("#24").val()
+			// 	if (text!="")
+			// 	{
+			// 		$("#24").val(text+"\r"+data.message+"\r"+data.function_message)
+			// 	}else{
+			// 		$("#24").val(data.message+"\r"+data.function_message)
+			// 	}
+			// 	if (idw.target.name=="21")
+			// 	{
+			// 	t=setInterval(function(){showStartAuto(idw)},1500)
+			// 	}
+				
+			// }
+		}});
+		
+});
+</script>
+</body>
+</html>

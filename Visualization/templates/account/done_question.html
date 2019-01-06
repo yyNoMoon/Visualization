@@ -1,0 +1,24 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+{% block title %}已做题目{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/done_q.css' %}">{% endblock %}
+
+{% block content %}
+
+    {% if request.session.is_login %}
+        <div class="done_q fl">
+            <table class="table table-striped" style="background:#B2DFEE;">
+                <tr >
+                    <th align="left">问题</th>
+                    <th align="left">难度系数</th>
+                    <th align="left">得分</th>
+                    <th align="left">时间</th>
+                </tr>
+
+            </table>
+        </div>
+    {% else %}
+        <h1>您尚未登录，请您<a href="/login/">登录</a></h1>
+    {% endif %}
+{% endblock %}

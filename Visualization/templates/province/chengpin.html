@@ -1,0 +1,1627 @@
+
+{% load staticfiles %}
+
+{% block css %}
+    <link rel="stylesheet" href="../../static/css/index.css">
+    <link rel="stylesheet" href="../../static/css/button.css">
+    <link rel="stylesheet" href="../../static/css/method.css">
+{% endblock %}
+
+{% block content %}
+    {% if request.session.is_login %}
+
+    <style type="text/css">
+    .anchorBL{
+        display:none
+    }
+</style>
+
+    <!DOCTYPE html>
+    <html style="height:100%;">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../static/jquery/jquery.js"></script>
+        <!--<script src="../../static/js/echarts.js"></script>-->
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/java script" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    </head>
+    <body style="height:100%; background-color: #29273D;">
+
+        <div style="width:22%;height:100%;float:left;">
+            <div id="container3" style="width:100%;height:50%;float:left;"></div>
+            <div id="container4" style="width:100%;height:50%;float:right;"></div>
+        </div>
+
+        <div style="width:40%;height:100%;float:left;">
+            <div id="main" style="width:100%;height:80%;float:left;"></div>
+            <div id="toolbox" style="width:100%;height:20%;float:left;">
+                <div id="choose-method" style="width:100%;height:30%;float:left;text-align: center;top: 10px;">
+                <button type="button" class="method-unselected" id="method-year" onclick="changeMethod(this)" >按单年份多省份分析</button>
+                <button type="button" class="method-selected" id="method-province" onclick="changeMethod(this)" >按单省份多年份分析</button>
+            </div>
+                <div id="choose-div" style="width:100%;height:70%;float:left;text-align: center;">
+                <button type="button" class="button-unselected" name="安徽" onclick="chooseProvince(this)" >安徽</button>
+                <button type="button" class="button-unselected" name="北京" onclick="chooseProvince(this)" >北京</button>
+                <button type="button" class="button-unselected" name="福建" onclick="chooseProvince(this)" >福建</button>
+                <button type="button" class="button-unselected" name="甘肃" onclick="chooseProvince(this)" >甘肃</button>
+                <button type="button" class="button-unselected" name="广东" onclick="chooseProvince(this)" >广东</button>
+                <button type="button" class="button-unselected" name="广西" onclick="chooseProvince(this)" >广西</button>
+                <button type="button" class="button-unselected" name="贵州" onclick="chooseProvince(this)" >贵州</button>
+                <button type="button" class="button-unselected" name="海南" onclick="chooseProvince(this)" >海南</button>
+                <button type="button" class="button-unselected" name="河北" onclick="chooseProvince(this)" >河北</button>
+                <button type="button" class="button-unselected" name="河南" onclick="chooseProvince(this)" >河南</button>
+                <button type="button" class="button-unselected" name="湖北" onclick="chooseProvince(this)" >湖北</button>
+                <button type="button" class="button-unselected" name="湖南" onclick="chooseProvince(this)" >湖南</button>
+                <button type="button" class="button-unselected" name="吉林" onclick="chooseProvince(this)" >吉林</button>
+                <button type="button" class="button-unselected" name="江苏" onclick="chooseProvince(this)" >江苏</button>
+                <button type="button" class="button-unselected" name="江西" onclick="chooseProvince(this)" >江西</button>
+                <button type="button" class="button-unselected" name="辽宁" onclick="chooseProvince(this)" >辽宁</button>
+                <button type="button" class="button-unselected" name="宁夏" onclick="chooseProvince(this)" >宁夏</button>
+                <button type="button" class="button-unselected" name="青海" onclick="chooseProvince(this)" >青海</button>
+                <button type="button" class="button-unselected" name="山东" onclick="chooseProvince(this)" >山东</button>
+                <button type="button" class="button-unselected" name="山西" onclick="chooseProvince(this)" >山西</button>
+                <button type="button" class="button-unselected" name="陕西" onclick="chooseProvince(this)" >陕西</button>
+                <button type="button" class="button-unselected" name="上海" onclick="chooseProvince(this)" >上海</button>
+                <button type="button" class="button-unselected" name="四川" onclick="chooseProvince(this)" >四川</button>
+                <button type="button" class="button-unselected" name="天津" onclick="chooseProvince(this)" >天津</button>
+                <button type="button" class="button-unselected" name="西藏" onclick="chooseProvince(this)" >西藏</button>
+                <button type="button" class="button-unselected" name="新疆" onclick="chooseProvince(this)" >新疆</button>
+                <button type="button" class="button-unselected" name="云南" onclick="chooseProvince(this)" >云南</button>
+                <button type="button" class="button-unselected" name="浙江" onclick="chooseProvince(this)" >浙江</button>
+                <button type="button" class="button-unselected" name="重庆" onclick="chooseProvince(this)" >重庆</button>
+                <button type="button" class="button-unselected" name="黑龙江" onclick="chooseProvince(this)" >黑龙江</button>
+                <button type="button" class="button-unselected" name="内蒙古" onclick="chooseProvince(this)" >内蒙古</button>
+            </div>
+            </div>
+        </div>
+
+        <div style="width:38%;height:100%;float:left;">
+            <div style="width:100%;height:50%;float:left;">
+                <div id="container2" style="width:50%;height:100%;float:left;"></div>
+                <div id="container5" style="width:50%;height:100%;float:left;"></div>
+            </div>
+            <div style="width:100%;height:50%;float:left;">
+                <div id="container6" style="width:100%;height:100%;float:right;"></div>
+                <div id="container7" style="width:100%;height:100%;float:right;"></div>
+
+
+            </div>
+
+        </div>
+        <script type="text/javascript">
+            var mainchart = echarts.init(document.getElementById('main'));
+            var industryIndexChart = echarts.init(document.getElementById("container2"));
+            var LegalEntityChart = echarts.init(document.getElementById("container3"));
+            var ThirdIndustryChart = echarts.init(document.getElementById("container4"));
+            var RCChart = echarts.init(document.getElementById("container5"));
+            var IndustryByChosenProvincesChart = echarts.init(document.getElementById("container6"));
+            var IndustryByYearsChart = echarts.init(document.getElementById("container7"));
+
+            // data
+            var selectedProvince = "北京";
+            var chosenProvinces = [];
+            var selectedYear = 2010;
+            var yearList = [2010, 2011, 2012, 2013, 2014, 2015, 2016];
+            var schema = [
+                {name: 'province', index: 0, text: '省市'},
+                {name: 'PI_VAI', index: 1, text: '第一产业'},
+                {name: 'SI_VAI', index: 2, text: '第二产业'},
+                {name: 'TI_VAI', index: 3, text: '第三产业'},
+                {name: 'FI_VAI', index: 4, text: '金融业'},
+                {name: 'REI_VAI', index: 5, text: '房地产业'},
+                {name: 'FI_NUM', index: 6, text: '金融机构数量'},
+                {name: 'AREA', index: 7, text: '地区区域'}
+            ];
+            var lineStyle = {
+                normal: {
+                    width: 1,
+                    opacity: 0.5
+                }
+            };
+            var geomap = {
+                '安徽省': [118.27,32.36],
+                '北京市': [117.40,42.50],
+                '福建省': [120.10,24.78],
+                '甘肃省': [103.82,37.07],
+                '广东省': [114.27,21.13],
+                '广西省': [108.37,20.82],
+                '贵州省': [106.63,26.65],
+                '海南省': [110.32,16.73],
+                '河北省': [115.52,40.05],
+                '河南省': [113.62,34.75],
+                '黑龙江省': [127.53,49.80],
+                '湖北省': [112.70,31.60],
+                '湖南省': [112.93,28.23],
+                '吉林省': [127.32,45.90],
+                '江苏省': [121.78,33.57],
+                '江西省': [116.85,27.68],
+                '宁夏区': [105.78,39.07],
+                '内蒙古区': [111.73,43.13],
+                '辽宁省': [124.38,43.8],
+                '青海省': [99.78,37.62],
+                '山东省': [117.98,37.67],
+                '山西省': [112.55,39.87],
+                '陕西省': [108.93,35.27],
+                '上海市': [123.47,31.73],
+                '四川省': [102.07,30.67],
+                '天津市': [119.00,41.50],
+                '西藏区': [91.13,29.65],
+                '新疆省': [87.62,43.82],
+                '云南省': [101.72,23.05],
+                '浙江省': [121.75,29.78],
+                '重庆市': [107.55,30.17]
+            };
+
+            var convertData = function(data) {
+                var res = [];
+                for (var i = 0; i < data.length; i++) {
+                    var geoCoord = geomap[data[i].name];
+                    if (geoCoord) {
+                        res.push({
+                            name: data[i].name,
+                            value: geoCoord.concat(data[i].value),
+                        });
+                        // alert(data[i].name)
+                        // alert(geoCoord.concat(data[i].value));
+
+                    }
+
+                }
+                return res;
+            };
+
+            // options
+            var mainOption = {
+                baseOption: {
+                    timeline: {
+                        axisType: 'category',
+                        show: true,
+                        autoPlay: false,
+                        playInterval: 1000,
+                        data: [],
+                        y:'80%',
+                        controlStyle:{
+
+                            normal :{
+                                itemSize: 15,
+                                itemGap: 5,
+                                color: 'gray',
+                            },
+                            emphasis : {
+                                itemSize: 15,
+                                itemGap: 5,
+                                color : 'white',
+                            }
+                        },
+                        checkpointStyle:{
+                           symbolSize : 10,
+                            color: 'gray',
+                        },
+                        height:40,
+                        label:{
+                           textStyle: {
+                               fontSize: 12,
+                               fontWeight: 'bolder',
+                               color: 'gray',
+                           }
+                        },
+                        lineStyle: {
+                            color: 'gray',
+                            width: 1,
+                        },
+                    },
+                    legend: {
+                        orient: 'horizontal',
+                        show: true,
+                        data:['人均GDP（元）','第一产业增加指数','第二产业增加指数','第三产业增加指数','金融业增加指数'],
+                        textStyle: {
+                            color: 'gray',
+
+                        },
+                        selected:{'人均GDP（元）':false,'第一产业增加指数': false,'第二产业增加指数': false,'第三产业增加指数': false,'金融业增加指数': false}
+                    },
+
+                    backgroundColor: '#29273D',
+                    title: {
+                        text: '2010年-2016年全国金融机构数量增长趋势(不包含港澳台)',
+                        x:'center',
+                        y:'10%',
+                        textStyle:{
+                           fontSize: 18,
+                           fontWeight: 'bolder',
+                           color: 'gray'
+                        }
+                    },
+                    tooltip : {
+                        trigger: 'item'
+                    },
+                    visualMap: {
+                        show : true,
+                        x: '4%',
+                        y: '60%',
+                        min:0,
+                        max:3000,
+                        calculable: true,
+                        splitList: [
+                               {start: 2500, end:3000},{start: 2000, end: 2500},
+                               {start: 1500, end: 2000},{start: 1000, end: 1500},
+                               {start: 500, end: 1000},{start: 0, end: 500},
+                           ],
+                        color: ['#272643','#14F6F8'],
+                        textStyle:{
+                           fontSize: 12,
+                           fontWeight: 'bolder',
+                           color: 'gray'
+                        },
+                        seriesIndex:0
+                    },
+                    bmap: {
+                        center: [104.114129, 37.550339],
+                        zoom: 4,
+                        roam: false,
+                        mapStyle: {
+                            styleJson: [
+                            {
+                                'featureType': 'water',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'color': '#d1d1d1',
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'land',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'color': '#f3f3f3',
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'railway',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'highway',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'highway',
+                                'elementType': 'labels',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'arterial',
+                                'elementType': 'geometry',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'arterial',
+                                'elementType': 'geometry.fill',
+                                'stylers': {
+                                    'color': '#fefefe',
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'poi',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'green',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'subway',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'manmade',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'color': '#d1d1d1',
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'local',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'color': '#d1d1d1'
+                                }
+                            }, {
+                                'featureType': 'arterial',
+                                'elementType': 'labels',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'boundary',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'color': '#fefefe',
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'building',
+                                'elementType': 'all',
+                                'stylers': {
+                                    'visibility': 'off'
+                                }
+                            }, {
+                                'featureType': 'label',
+                                'elementType': 'labels.text.fill',
+                                'stylers': {
+                                    'color': '#999999',
+                                    'visibility': 'off'
+                                }
+                            }]
+                        }
+                    },
+                    series: [
+                        {
+                            name: '该省金融机构增加数：',
+                            type: 'map',
+                            mapType: 'china',
+                            // selectedMode: 'single',
+                            roam: false,
+                            label: {
+                                normal: {
+                                   show: false
+                                },
+                                emphasis: {
+                                   show: false
+                                }
+                            }
+                        },
+                        {
+                            name: '人均GDP（元）',
+                            type: 'effectScatter',
+                            coordinateSystem: 'bmap',
+                                symbolSize: function (val) {
+                                    return val[2] / 3000;
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: function (params) {
+                                    return params.name+":"+params.value[2];
+                                },
+                            },
+                            showEffectOn: 'emphasis',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: false
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'rgba(237,223,92, 0.7)',
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            zlevel: 1
+                        },
+                        {
+                            name: '第一产业增加指数',
+                            type: 'effectScatter',
+                            coordinateSystem: 'bmap',
+                                symbolSize: function (val) {
+                                    return val[2] -90;
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: function (params) {
+                                    return params.name+":"+params.value[2];
+                                },
+                            },
+                            showEffectOn: 'emphasis',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'rgba(0,140,5,0.7)',
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            zlevel: 1
+                        },
+                        {
+                            name: '第二产业增加指数',
+                            type: 'effectScatter',
+                            coordinateSystem: 'bmap',
+                                symbolSize: function (val) {
+                                    return val[2] - 100;
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: function (params) {
+                                    return params.name+":"+params.value[2];
+                                },
+                            },
+                            showEffectOn: 'emphasis',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'rgba(241,124,103,0.7)',
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            zlevel: 1
+                        },
+                        {
+                            name: '第三产业增加指数',
+                            type: 'effectScatter',
+                            coordinateSystem: 'bmap',
+                                symbolSize: function (val) {
+                                    return val[2] - 100;
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: function (params) {
+                                    return params.name+":"+params.value[2];
+                                },
+                            },
+                            showEffectOn: 'purple',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'rgba(122,96,144,0.7)',
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            zlevel: 1
+                        },
+                        {
+                            name: '金融业增加指数',
+                            type: 'effectScatter',
+                            coordinateSystem: 'bmap',
+                                symbolSize: function (val) {
+                                    return val[2] - 120;
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: function (params) {
+                                    return params.name+":"+params.value[2];
+                                },
+                            },
+                            showEffectOn: 'emphasis',
+                            rippleEffect: {
+                                brushType: 'brightgreen'
+                            },
+                            hoverAnimation: true,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'rgba(186,255,173,0.7)',
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            zlevel: 1
+                        },
+                    ]
+                },
+                options:[
+                    {
+                        series : [
+                        {
+                            itemStyle: {
+                                normal: {
+                                    borderColor: 'black',
+                                    areaColor: '#fff',
+                                    borderWidth: 0.3,
+                                },//正常样式
+                                emphasis: {
+                                    // areaColor: '#EDDF5C',
+                                    areaStyle: {
+                                        color: '#EDDF5C',//选中状态的地图板块颜色
+                                    },
+                                    borderWidth: 1,
+                                    borderColor: '#EDDF5C',
+                                    label: {
+                                        show: true,
+                                        textStyle: {
+                                            color: '#fff'
+                                        }
+                                    },
+
+
+                                }//鼠标事件区块样式
+                            },
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        }]
+                    },
+                    {
+                        series : [
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        }]
+                    },
+                    {
+                        series : [
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        }]
+                    },
+                    {
+                        series : [
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        }]
+                    },
+                    {
+                        series : [
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        }]
+                    },
+                    {
+                        series : [
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        }]
+                    },
+                    {
+                        series : [
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        },
+                        {
+                            data: []
+                        }]
+                    }
+                ]
+            };
+
+            var industryIndexOption = {
+
+                color: ['#E9AEC1','#90C9FF','#DE9325'],
+                tooltip: {
+                  trigger: 'axis',
+                  axisPointer: {
+                      type: 'shadow'
+                  }
+                },
+                legend: {
+                    data: ['第一产业', '第二产业', '第三产业'],
+                    textStyle: {
+                        color: 'gray',
+                    }
+                },
+                calculable: true,
+                dataZoom: [
+                    {
+                        type: 'slider',
+                        show: false,
+                        start: 0,
+                        end: 100,
+                        handleSize: 8,
+                        height: 12,
+                        moveOnMouseMove: false,
+                    },
+                    {
+                        type: 'inside',
+                        start: 0,
+                        end: 100
+                    },
+                    {
+                        type: 'slider',
+                        show: false,
+                        yAxisIndex: 0,
+                        filterMode: 'empty',
+                        width: 12,
+                        height: '70%',
+                        handleSize: 8,
+                        showDataShadow: false,
+                        left: '93%',
+                        moveOnMouseMove: false,
+                    }
+                ],
+                xAxis: [
+                    {
+                        type: 'category',
+                        axisTick: {show: false},
+                        data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016'],
+                        axisLine: {
+                            lineStyle: {
+                                type: 'solid',
+                                color: 'gray',//左边线的颜色
+                                // width:'2'//坐标线的宽度
+                            }
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: 'gray',//坐标值得具体的颜色
+
+                            }
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                      type: 'value',
+                      color: 'gray',
+                      axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: 'gray',//左边线的颜色
+                            // width:'2'//坐标线的宽度
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: 'gray',//坐标值得具体的颜色
+
+                        }
+                      }
+                    }
+                ],
+                series: [
+                  {
+                      name: '第一产业',
+                      type: 'bar',
+                      barGap: 0,
+                      //label: labelOption,
+                      data: []
+                  },
+                  {
+                      name: '第二产业',
+                      type: 'bar',
+                      //label: labelOption,
+                      data: []
+                  },
+                  {
+                      name: '第三产业',
+                      type: 'bar',
+                      //label: labelOption,
+                      data: []
+                  }
+                ]
+            };
+
+            var legalEntityOption = {
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    confine: true
+                },
+                legend: {
+                    // type: 'scroll',
+                    // height: 20,
+                    left: 'left',
+                    data:['金融业法人','房地产业法人','科研、技术服务法人','信息传输、计算机法人'],
+                    show: true,
+                    orient: "horizontal",
+                    itemWidth: 10,
+                    itemHeight: 10,
+                    textStyle: {
+                        color: 'gray',
+                        // fontSize: 8,
+                    }
+                },
+                // grid: {
+                //     containLabel: true
+                // },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [2012, 2013, 2014, 2015, 2016],
+                    axisLine: {
+                            lineStyle: {
+                                type: 'solid',
+                                color: 'gray',//左边线的颜色
+                                // width:'2'//坐标线的宽度
+                            }
+                       },
+                       axisLabel: {
+                           textStyle: {
+                               color: 'gray',
+                           }
+                       }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: {
+                            lineStyle: {
+                                type: 'solid',
+                                color: 'gray',//左边线的颜色
+                                // width:'2'//坐标线的宽度
+                            }
+                       },
+                       axisLabel: {
+                           textStyle: {
+                               color: 'gray',
+                           }
+                       }
+                },
+                series: [
+                    {
+                        name:'金融业法人',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'房地产业法人',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'科研、技术服务法人',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'信息传输、计算机法人',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                ]
+            };
+
+            var thirdIndustryOption = {
+               tooltip: {
+                   trigger: 'item',
+                   formatter: "{a} <br/>{b}: {c} ({d}%)",
+                   confine: true
+               },
+               legend: {
+                   orient: 'vertical',
+                   x: 'left',
+                   itemWidth: 10,
+                   itemHeight: 10,
+                   textStyle: {
+                       "fontSize": 10,
+                       "color": 'gray',
+                   },
+                   data:['金融业增加值','房地产业增加值','住宿和餐饮业增加值','批发和零售业增加值','其他']
+               },
+               series: [
+                   {
+                       name:selectedProvince+selectedYear+'年三产增加值对比',
+                       type:'pie',
+                       selectedMode: 'single',
+                       radius: [0, '30%'],
+
+                       label: {
+                           normal: {
+                               position: 'inner'
+                           }
+                       },
+                       labelLine: {
+                           normal: {
+                               show: false
+                           }
+                       },
+                       data:[],
+                   },
+                   {
+                       name:selectedProvince+selectedYear+'年第三产业分类',
+                       type:'pie',
+                       radius: ['40%', '55%'],
+                       label: {
+                           normal: {
+                               formatter: '{d}%',
+                               backgroundColor: '#eee',
+                               // borderColor: '#aaa',
+                               borderWidth: 1,
+                               borderRadius: 4,
+                               rich: {
+                                   a: {
+                                       color: '#999',
+                                       lineHeight: 15,
+                                       align: 'center'
+                                   },
+                                   hr: {
+                                       borderColor: '#aaa',
+                                       width: '50%',
+                                       borderWidth: 0.2,
+                                       height: 0
+                                   },
+                                   b: {
+                                       fontSize: 12,
+                                       lineHeight: 20
+                                   },
+                                   per: {
+                                       color: '#aaa',
+                                       backgroundColor: '#334455',
+                                       padding: [0, 0],
+                                       borderRadius: 2
+                                   }
+                               }
+                           }
+                       },
+                       data:[],
+                   }
+               ]
+            };
+
+            var RCOption = {
+                tooltip: {
+                   trigger: 'axis',
+                   axisPointer: {
+                       type: 'cross',
+                       crossStyle: {
+                           color: '#999'
+                       }
+                   }
+                },
+                legend: {
+                    data:['农村居民消费水平','城市居民消费水平','农村居民消费指数','城市居民消费指数'],
+                    orient: "horizontal",
+                    itemWidth: 10,
+                    itemHeight: 10,
+                    textStyle: {
+                       color: 'gray',
+                    },
+                },
+                xAxis: [
+                   {
+                       type: 'category',
+                       data: ['2010','2011','2012','2013','2014','2015','2016'],
+                       axisPointer: {
+                           type: 'shadow'
+                       },
+                       axisLine: {
+                            lineStyle: {
+                                type: 'solid',
+                                color: 'gray',//左边线的颜色
+                                // width:'2'//坐标线的宽度
+                            }
+                       },
+                       axisLabel: {
+                           textStyle: {
+                               color: 'gray',
+                           }
+                       }
+                   }
+                ],
+                yAxis: [
+                   {
+                       type: 'value',
+                       // name: '元',
+                       min: 0,
+                       max: 55000,
+                       interval: 7000,
+                       axisLine: {
+                            lineStyle: {
+                                type: 'solid',
+                                color: 'gray',//左边线的颜色
+                                // width:'2'//坐标线的宽度
+                            }
+                       },
+                       axisLabel: {
+                           textStyle: {
+                               color: 'gray',
+                           }
+                       }
+                   },
+                   {
+                       type: 'value',
+                       // name: '指数',
+                       min: 0,
+                       max: 170,
+                       interval: 30,
+                       axisLabel: {
+                           formatter: '{value}'
+                       },
+                       axisLine: {
+                            lineStyle: {
+                                type: 'solid',
+                                color: 'gray',//左边线的颜色
+                                // width:'2'//坐标线的宽度
+                            }
+                       },
+                       axisLabel: {
+                           textStyle: {
+                               color: 'gray',
+                           }
+                       }
+                   }
+                ],
+                series: [
+                   {
+                       name:'农村居民消费水平',
+                       type:'bar',
+                       data:[],
+                       color: '#F17C67',
+                   },
+                   {
+                       name:'城市居民消费水平',
+                       type:'bar',
+                       data:[],
+                       color: '#495A80',
+                   },
+                   {
+                       name:'农村居民消费指数',
+                       type:'line',
+                       yAxisIndex: 1,
+                       data:[]
+                   },
+                   {
+                       name:'城市居民消费指数',
+                       type:'line',
+                       yAxisIndex: 1,
+                       data:[]
+                   }
+                ]
+            };
+
+            var IndustryByChosenProvincesOption = {
+                backgroundColor: '#29273D',
+                legend: {
+                    bottom: 30,
+                    data: ['北京'],
+                    itemGap: 20,
+                    textStyle: {
+                        color: 'gray',
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    padding: 10,
+                    backgroundColor: '#222',
+                    borderColor: '#777',
+                    borderWidth: 1,
+                    formatter: function (obj) {
+                        var value = obj[0].value;
+                        return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
+                            + obj[0].seriesName + ' ' + value[0] + '省市：'
+                            + value[7]
+                            + '</div>'
+                            + schema[1].text + '：' + value[1] + '<br>'
+                            + schema[2].text + '：' + value[2] + '<br>'
+                            + schema[3].text + '：' + value[3] + '<br>'
+                            + schema[4].text + '：' + value[4] + '<br>'
+                            + schema[5].text + '：' + value[5] + '<br>'
+                            + schema[6].text + '：' + value[6] + '<br>'
+                            + schema[7].text + '：' + value[7] + '<br>';
+                    }
+                },
+                parallelAxis: [
+                    {dim: 0, name: schema[0].text,
+                    type: 'category', data: ['北京', '天津', '广州'],  nameLocation: 'end'},
+                    {dim: 1, name: schema[1].text, min: -20, max:60},
+                    {dim: 2, name: schema[2].text, min: -20, max:60},
+                    {dim: 3, name: schema[3].text, min: -20, max:60},
+                    {dim: 4, name: schema[4].text, min: -20, max:60},
+                    {dim: 5, name: schema[5].text, min: -20, max:60},
+                    {dim: 6, name: schema[6].text},
+                    {dim: 7, name: schema[7].text,
+                    type: 'category', data: ['东北', '华东', '华北', '华中', '华南', '西南', '西北'], nameLocation: 'end'}
+                ],
+                visualMap: {
+                    show: true,
+                    min: 0,
+                    max: 150,
+                    dimension: 2,
+                    inRange: {
+                        color: ['#d94e5d','#eac736','#50a3ba'].reverse(),
+                        // colorAlpha: [0, 1]
+                    }
+                },
+                parallel: {
+                    left: '5%',
+                    right: '18%',
+                    bottom: 100,
+                    parallelAxisDefault: {
+                        type: 'value',
+                        name: 'AQI指数',
+                        nameLocation: 'end',
+                        nameGap: 20,
+                        // min: -20,
+                        // max: 40,
+                        nameTextStyle: {
+                            color: 'gray',
+                            fontSize: 12
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'gray'
+                            }
+                        },
+                        axisTick: {
+                            lineStyle: {
+                                color: 'gray'
+                            }
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: 'gray'
+                            }
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '北京',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: []
+                    },
+
+                ]
+            };
+
+            var IndustryByYearsOption = {
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['第一产业增加指数','第二产业增加指数','第三产业增加指数','金融业增加指数','房地产业增加指数','住宿餐饮业增加指数','其他行业增加指数'],
+                    orient: "horizontal",
+                    itemWidth: 10,
+                    itemHeight: 10,
+                    textStyle: {
+                        color: 'gray',
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: yearList,
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: 'gray',//左边线的颜色
+                            // width:'2'//坐标线的宽度
+                        }
+                    },
+                    axisLabel: {
+                       textStyle: {
+                           color: 'gray',
+                       }
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: 'gray',//左边线的颜色
+                            // width:'2'//坐标线的宽度
+                        }
+                    },
+                    axisLabel: {
+                       textStyle: {
+                           color: 'gray',
+                       }
+                    }
+                },
+                series: [
+                    {
+                        name:'第一产业增加指数',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'第二产业增加指数',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'第三产业增加指数',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'金融业增加指数',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'房地产业增加指数',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'住宿和餐饮业增加指数',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                    {
+                        name:'其他行业增加指数',
+                        type:'line',
+                        // stack: '总量',
+                        data:[]
+                    },
+                ]
+            };
+
+            loadMainDATA(mainOption);
+            loadIndustryIndex(industryIndexOption, "北京");
+            loadLegalEntityNum(legalEntityOption, "北京", selectedYear);
+            loadThirdIndustryData(thirdIndustryOption, "北京", 2010);
+            loadRCData(RCOption, "北京");
+            loadIndustryByChosenProvincesData(IndustryByChosenProvincesOption, ['北京'], 2010);
+            loadIndustryByYearsData(IndustryByYearsOption, selectedProvince);
+
+            mainchart.on('click', function(params){
+                if(params.componentType == 'timeline')
+                {
+
+                }else if (params.componentType == 'series'){
+                    selectedProvince = params.data.name;
+                    mainOption.baseOption.title.text = "2010年-2016年全国金融机构数量增长趋势("+selectedProvince+")";
+                    mainchart.setOption(mainOption);
+
+                    loadIndustryIndex(industryIndexOption, selectedProvince);
+                    loadLegalEntityNum(legalEntityOption, selectedProvince, selectedYear);
+                    loadThirdIndustryData(thirdIndustryOption, selectedProvince, selectedYear);
+                    loadRCData(RCOption, selectedProvince);
+                    loadIndustryByYearsData(IndustryByYearsOption, selectedProvince);
+                }else{
+                    alert("error!");
+                }
+            });//点击事件
+            mainchart.on('timelinechanged', function(params){
+
+                selectedYear = yearList[params.currentIndex];
+
+                loadIndustryIndex(industryIndexOption, selectedProvince);
+                // loadLegalEntityNum(legalEntityOption, selectedProvince, selectedYear);
+                loadThirdIndustryData(thirdIndustryOption, selectedProvince, selectedYear);
+                loadRCData(RCOption, selectedProvince);
+                loadIndustryByChosenProvincesData(IndustryByChosenProvincesOption, chosenProvinces, selectedYear);
+            });
+
+            function chooseProvince(doc) {
+                if(doc.className == 'button-selected')
+                {
+                    doc.setAttribute('class', 'button-unselected');
+                }else{
+                    doc.setAttribute('class', 'button-selected');
+
+                    // IndustryByChosenProvincesOption.legend.data.push(doc.name);
+                }
+                var chosenButton = document.getElementsByClassName('button-selected');
+                chosenProvinces = [];
+
+                for(var i=0;i<chosenButton.length;i++)
+                {
+                    chosenProvinces.push(chosenButton[i].name);
+                }
+                loadIndustryByChosenProvincesData(IndustryByChosenProvincesOption, chosenProvinces, selectedYear);
+            }
+            function changeMethod(doc) {
+                // alert(doc.className);
+                if(doc.className == 'method-selected')
+                {
+                    if(doc.id == 'method-year')
+                    {
+                        document.getElementById('method-province').setAttribute('class', 'method-selected');
+                        $("#container7").show();
+                        $("#container6").hide();
+                    }else{
+                        document.getElementById('method-year').setAttribute('class', 'method-selected');
+                        $("#container7").hide();
+                        $("#container6").show();
+                    }
+                    doc.setAttribute('class', 'method-unselected');
+
+                }else{
+                    if(doc.id == 'method-year')
+                    {
+                        document.getElementById('method-province').setAttribute('class', 'method-unselected');
+                        $("#container7").hide();
+                        $("#container6").show();
+                    }else{
+                        document.getElementById('method-year').setAttribute('class', 'method-unselected');
+                        $("#container7").show();
+                        $("#container6").hide();
+                    }
+                    doc.setAttribute('class', 'method-selected');
+                }
+            }
+            function loadMainDATA(option){
+                $.ajax({
+                   type : "GET",
+                   async : true, //异步执行
+                   //url : "http://192.168.1.138:8000/getAllData/",
+                   url : "http://127.0.0.1:8000/getAllData/",
+                   data : {},
+                   dataType : "json", //返回数据形式为json
+                   success : function(result) {
+                              if (result) {
+                                  option.baseOption.timeline.data=result.yearList;
+                                  for(var i=0;i<option.options.length;i++){
+                                      option.options[i].series[0].data = result.FI_NUM[i];
+                                      option.options[i].series[1].data = convertData(result.GDP[i].sort(function (a, b) {
+                                                                            return b.value - a.value;
+                                                                        }).slice(0, 6));
+                                      option.options[i].series[2].data = convertData(result.PI_VAI[i].sort(function (a, b) {
+                                                                            return b.value - a.value;
+                                                                        }).slice(0, 6));
+                                      option.options[i].series[3].data = convertData(result.SI_VAI[i].sort(function (a, b) {
+                                                                            return b.value - a.value;
+                                                                        }).slice(0, 6));
+                                      option.options[i].series[4].data = convertData(result.TI_VAI[i].sort(function (a, b) {
+                                                                            return b.value - a.value;
+                                                                        }).slice(0, 6));
+                                      option.options[i].series[5].data = convertData(result.FI_VAI[i].sort(function (a, b) {
+                                                                            return b.value - a.value;
+                                                                        }).slice(0, 6));
+                                  }
+                                  mainchart.setOption(option, true);
+                                  $("#container7").show();
+                                  $("#container6").hide();
+                               }
+                            }
+                });
+            }
+            function loadIndustryIndex(option, selectedProvince){
+                $.ajax({
+                   type : "GET",
+                   async : true, //同步执行
+                   // url : "http://192.168.1.138:8000/getIndustryIndexData/"+selectedProvince+"/",
+                   url : "http://127.0.0.1:8000/getIndustryIndexData/"+selectedProvince+"/",
+                   data : {},
+                   dataType : "json", //返回数据形式为json
+                   success : function(result) {
+                              if (result) {
+                                  option.series[0].data = result[0];
+                                  option.series[1].data = result[1];
+                                  option.series[2].data = result[2];
+
+                                  if (option && typeof option === "object") {
+                                      industryIndexChart.setOption(option, true);
+                                  }
+                               }
+                            }
+                });
+            }
+            function loadLegalEntityNum(option, selectedProvince, selectedYear){
+                $.ajax({
+                   type : "GET",
+                   async : true, //同步执行
+                   // url : "http://192.168.1.138:8000/getLegalEntityNumData/"+selectedProvince+"/"+selectedYear+"/",
+                   url : "http://127.0.0.1:8000/getLegalEntityNumData/"+selectedProvince+"/",
+                   data : {},
+                   dataType : "json", //返回数据形式为json
+                   success : function(result) {
+                              if (result) {
+                                  option.series[0].data = result.FI_CR;
+                                  option.series[1].data = result.REI_CR;
+                                  option.series[2].data = result.STG_CR;
+                                  option.series[3].data = result.ICS_CR;
+                                  // option.title.text = selectedProvince+selectedYear+'年各产业法人单位数';
+
+                                  if (option && typeof option === "object") {
+                                      LegalEntityChart.setOption(option, true);
+                                  }
+                               }
+                            }
+                });
+            }
+            function loadThirdIndustryData(option, selectedProvince, selectedYear){
+                $.ajax({
+                   type : "GET",
+                   async : true, //同步执行
+                   // url : "http://192.168.1.138:8000/getThirdIndustryData/"+selectedProvince+"/"+selectedYear+"/",
+                   url : "http://127.0.0.1:8000/getThirdIndustryData/"+selectedProvince+"/"+selectedYear+"/",
+                   data : {},
+                   dataType : "json", //返回数据形式为json
+                   success : function(result) {
+                              if (result) {
+                                  // alert(result[0]);
+                                  option.series[0].data = result.Indexdata;
+                                  option.series[0].name = selectedProvince+selectedYear+'年三产增加值对比';
+                                  option.series[1].data = result.TIdata;
+                                  option.series[1].name = selectedProvince+selectedYear+'年第三产业分类';
+
+                                  if (option && typeof option === "object") {
+                                      ThirdIndustryChart.setOption(option);
+                                  }
+                               }
+                            }
+                });
+            }
+            function loadRCData(option, selectedProvince){
+                $.ajax({
+                    type : "GET",
+                    async : true, //同步执行
+                    // url : "http://192.168.1.138:8000/getRCData/"+selectedProvince+"/",
+                    url : "http://127.0.0.1:8000/getRCData/"+selectedProvince+"/",
+                    data : {},
+                    dataType : "json", //返回数据形式为json
+                    success : function(result) {
+                        if (result) {
+                          // alert(result[0]);
+                          option.series[0].data = result.R_RCL;
+                          option.series[1].data = result.U_RCL;
+                          option.series[2].data = result.R_RCLI;
+                          option.series[3].data = result.U_RCLI;
+
+                          if (option && typeof option === "object") {
+                              RCChart.setOption(option, true);
+                          }
+                        }
+                        }
+                });
+            }
+            function loadIndustryByChosenProvincesData(option, chosenProvinces, selectedYear){
+                $.ajax({
+                    type : "POST",
+                    async : true, //同步执行
+                    // url : "http://192.168.1.138:8000/getRCData/"+selectedProvince+"/",
+                    url : "http://127.0.0.1:8000/getIndustryDataByChosenProvinces/",
+                    data : {provinces: JSON.stringify(chosenProvinces), year: selectedYear},
+                    dataType : "json", //返回数据形式为json
+                    success : function(result) {
+                            if (result) {
+                                // option.legend.data = chosenProvinces;
+                                option.parallelAxis[0].data=chosenProvinces;
+                                option.legend.data = chosenProvinces;
+
+                                option.series = [];
+                                for(var i=0;i<result.length;i++)
+                                {
+                                    option.series.push({name: result[i].name, type: 'parallel', lineStyle: lineStyle, data: [result[i].value]});
+                                }
+
+                                // option.series[0].data=result;
+
+                                IndustryByChosenProvincesChart.setOption(option, true);
+                            }
+                        }
+                });
+            }
+            function loadIndustryByYearsData(option, selectedProvince){
+                $.ajax({
+                    type : "GET",
+                    async : true, //同步执行
+                    // url : "http://192.168.1.138:8000/getRCData/"+selectedProvince+"/",
+                    url : "http://127.0.0.1:8000/getIndustryByYearsData/"+selectedProvince+"/",
+                    data : {},
+                    dataType : "json", //返回数据形式为json
+                    success : function(result) {
+                            if (result) {
+                                option.series[0].data = result.PI_VAI;
+                                option.series[1].data = result.SI_VAI;
+                                option.series[2].data = result.TI_VAI;
+                                option.series[3].data = result.FI_VAI;
+                                option.series[4].data = result.REI_VAI;
+                                option.series[5].data = result.ACI_VAI;
+                                option.series[6].data = result.OI_VAI;
+
+                                IndustryByYearsChart.setOption(option, true);
+                            }
+                        }
+                });
+            }
+
+        </script>
+
+    </body>
+    </html>
+
+    {% else %}
+    <h1>您尚未登录，请您<a href="/login/">登录</a></h1>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%;">
+           <div id="map" style="width: 600px;height:400px;padding-left: 30px;padding-top: 30px;float: left;">
+
+           </div>
+
+           <div id="lineChart" style="width: 600px;height:400px;padding-left: 30px;padding-top: 30px;float: left;">
+
+           </div>
+
+       </div>
+
+
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
+       <script type="text/javascript">
+            var dom = document.getElementById("lineChart");
+            var myChart = echarts.init(dom);
+            var app = {};
+            linesOption = null;
+            linesOption = {
+                title: {
+                    text: '某省1998年-2002年经济指标'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['第一产业增加值','第二产业增加值','第三产业增加值','金融业增加值']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['1998','1999','2000','2001','2002']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name:'第一产业增加值',
+                        type:'line',
+                        stack: '总量',
+                        data:[120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name:'第二产业增加值',
+                        type:'line',
+                        stack: '总量',
+                        data:[220, 182, 191, 234, 290, 330, 310]
+                    },
+                    {
+                        name:'第三产业增加值',
+                        type:'line',
+                        stack: '总量',
+                        data:[150, 232, 201, 154, 190, 330, 410]
+                    },
+                    {
+                        name:'金融业增加值',
+                        type:'line',
+                        stack: '总量',
+                        data:[320, 332, 301, 334, 390, 330, 320]
+                    }
+                ]
+            };
+            if (linesOption && typeof linesOption === "object") {
+                myChart.setOption(linesOption, true);
+            }
+
+       </script>
+
+       <script type="text/javascript">
+            var dom = document.getElementById("map");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+
+            var data1 = [
+                {name: '安徽', value: 38},
+                {name: '北京', value: 71},
+                {name: '福建', value: 64},
+                {name: '甘肃', value: 132},
+                {name: '广东', value: 335},
+                {name: '广西', value: 404},
+                {name: '贵州', value: 20},
+                {name: '海南', value: 12},
+                {name: '河北', value: 65},
+                {name: '河南', value: 247},
+                {name: '黑龙江', value: 27},
+                {name: '湖北', value: 47},
+                {name: '湖南', value: 74},
+                {name: '吉林', value: 109},
+                {name: '江苏', value: 123},
+                {name: '江西', value: 54},
+                {name: '辽宁', value: 75},
+                {name: '内蒙古', value: 73},
+                {name: '宁夏', value: 32},
+                {name: '青海', value: 52},
+                {name: '山东', value: 110},
+                {name: '山西', value: 121},
+                {name: '陕西', value: 184},
+                {name: '上海', value: 34},
+                {name: '四川', value: 239},
+                {name: '天津', value: 37},
+                {name: '西藏', value: 2},
+                {name: '新疆', value: 33},
+                {name: '云南', value: 37},
+                {name: '浙江', value: 84},
+                {name: '重庆', value: 21}
+            ];
+
+
+            var data2 = [
+                {name: '安徽', value: 515},
+                {name: '北京', value: 271},
+                {name: '福建', value: 363},
+                {name: '甘肃', value: 663},
+                {name: '广东', value: 2745},
+                {name: '广西', value: 831},
+                {name: '贵州', value: 297},
+                {name: '海南', value: 100},
+                {name: '河北', value: 718},
+                {name: '河南', value: 1154},
+                {name: '黑龙江', value: 329},
+                {name: '湖北', value: 408},
+                {name: '湖南', value: 543},
+                {name: '吉林', value: 310},
+                {name: '江苏', value: 1234},
+                {name: '江西', value: 495},
+                {name: '辽宁', value: 545},
+                {name: '内蒙古', value: 521},
+                {name: '宁夏', value: 144},
+                {name: '青海', value: 65},
+                {name: '山东', value: 1307},
+                {name: '山西', value: 756},
+                {name: '陕西', value: 436},
+                {name: '上海', value: 481},
+                {name: '四川', value: 832},
+                {name: '天津', value: 370},
+                {name: '西藏', value: 72},
+                {name: '新疆', value: 378},
+                {name: '云南', value: 431},
+                {name: '浙江', value: 833},
+                {name: '重庆', value: 337}
+            ];
+
+            var data3 = [
+                {name: '安徽', value: 294},
+                {name: '北京', value: 168},
+                {name: '福建', value: 249},
+                {name: '甘肃', value: 130},
+                {name: '广东', value: 728},
+                {name: '广西', value: 215},
+                {name: '贵州', value: 64},
+                {name: '海南', value: 189},
+                {name: '河北', value: 251},
+                {name: '河南', value: 508},
+                {name: '黑龙江', value: 200},
+                {name: '湖北', value: 245},
+                {name: '湖南', value: 283},
+                {name: '吉林', value: 167},
+                {name: '江苏', value: 951},
+                {name: '江西', value: 190},
+                {name: '辽宁', value: 430},
+                {name: '内蒙古', value: 240},
+                {name: '宁夏', value: 50},
+                {name: '青海', value: 31},
+                {name: '山东', value: 455},
+                {name: '山西', value: 245},
+                {name: '陕西', value: 267},
+                {name: '上海', value: 206},
+                {name: '四川', value: 539},
+                {name: '天津', value: 376},
+                {name: '西藏', value: 3},
+                {name: '新疆', value: 93},
+                {name: '云南', value: 199},
+                {name: '浙江', value: 499},
+                {name: '重庆', value: 147}
+            ];
+
+            var data4 = [
+                {name: '安徽', value: 447},
+                {name: '北京', value: 768},
+                {name: '福建', value: 455},
+                {name: '甘肃', value: 160},
+                {name: '广东', value: 1205},
+                {name: '广西', value: 404},
+                {name: '贵州', value: 157},
+                {name: '海南', value: 39},
+                {name: '河北', value: 323},
+                {name: '河南', value: 555},
+                {name: '黑龙江', value: 302},
+                {name: '湖北', value: 682},
+                {name: '湖南', value: 339},
+                {name: '吉林', value: 272},
+                {name: '江苏', value: 1293},
+                {name: '江西', value: 166},
+                {name: '辽宁', value: 599},
+                {name: '内蒙古', value: 300},
+                {name: '宁夏', value: 115},
+                {name: '青海', value: 51},
+                {name: '山东', value: 692},
+                {name: '山西', value: 263},
+                {name: '陕西', value: 215},
+                {name: '上海', value: 183},
+                {name: '四川', value: 529},
+                {name: '天津', value: 185},
+                {name: '西藏', value: 4},
+                {name: '新疆', value: 139},
+                {name: '云南', value: 165},
+                {name: '浙江', value: 654},
+                {name: '重庆', value: 196}
+            ];
+
+            var data5 = [
+                {name: '安徽', value: 1641},
+                {name: '北京', value: 497},
+                {name: '福建', value: 1062},
+                {name: '甘肃', value: 515},
+                {name: '广东', value: 2756},
+                {name: '广西', value: 766},
+                {name: '贵州', value: 804},
+                {name: '海南', value: 293},
+                {name: '河北', value: 1417},
+                {name: '河南', value: 1790},
+                {name: '黑龙江', value: 1135},
+                {name: '湖北', value: 1570},
+                {name: '湖南', value: 1539},
+                {name: '吉林', value: 845},
+                {name: '江苏', value: 2268},
+                {name: '江西', value: 1248},
+                {name: '辽宁', value: 1620},
+                {name: '内蒙古', value: 928},
+                {name: '宁夏', value: 181},
+                {name: '青海', value: 130},
+                {name: '山东', value: 2575},
+                {name: '山西', value: 930},
+                {name: '陕西', value: 862},
+                {name: '上海', value: 635},
+                {name: '四川', value: 1857},
+                {name: '天津', value: 400},
+                {name: '西藏', value: 44},
+                {name: '新疆', value: 476},
+                {name: '云南', value: 685},
+                {name: '浙江', value: 1479},
+                {name: '重庆', value: 800}
+            ];
+
+            var data6 = [
+                {name: '安徽', value: 885},
+                {name: '北京', value: 366},
+                {name: '福建', value: 545},
+                {name: '甘肃', value: 208},
+                {name: '广东', value: 1272},
+                {name: '广西', value: 448},
+                {name: '贵州', value: 371},
+                {name: '海南', value: 98},
+                {name: '河北', value: 1343},
+                {name: '河南', value: 697},
+                {name: '黑龙江', value: 305},
+                {name: '湖北', value: 809},
+                {name: '湖南', value: 703},
+                {name: '吉林', value: 480},
+                {name: '江苏', value: 934},
+                {name: '江西', value: 401},
+                {name: '辽宁', value: 804},
+                {name: '内蒙古', value: 402},
+                {name: '宁夏', value: 107},
+                {name: '青海', value: 71},
+                {name: '山东', value: 1254},
+                {name: '山西', value: 491},
+                {name: '陕西', value: 578},
+                {name: '上海', value: 340},
+                {name: '四川', value: 792},
+                {name: '天津', value: 366},
+                {name: '西藏', value: 9},
+                {name: '新疆', value: 259},
+                {name: '云南', value: 284},
+                {name: '浙江', value: 1127},
+                {name: '重庆', value: 343}
+            ];
+
+            var data7 = [
+                {name: '安徽', value: 1259},
+                {name: '北京', value: 400},
+                {name: '福建', value: 572},
+                {name: '甘肃', value: 363},
+                {name: '广东', value: 1249},
+                {name: '广西', value: 496},
+                {name: '贵州', value: 675},
+                {name: '海南', value: 111},
+                {name: '河北', value: 1015},
+                {name: '河南', value: 1061},
+                {name: '黑龙江', value: 350},
+                {name: '湖北', value: 856},
+                {name: '湖南', value: 827},
+                {name: '吉林', value: 584},
+                {name: '江苏', value: 989},
+                {name: '江西', value: 600},
+                {name: '辽宁', value: 964},
+                {name: '内蒙古', value: 630},
+                {name: '宁夏', value: 76},
+                {name: '青海', value: 157},
+                {name: '山东', value: 1339},
+                {name: '山西', value: 737},
+                {name: '陕西', value: 655},
+                {name: '上海', value: 324},
+                {name: '四川', value: 1313},
+                {name: '天津', value: 242},
+                {name: '西藏', value: 19},
+                {name: '新疆', value: 301},
+                {name: '云南', value: 296},
+                {name: '浙江', value: 1661},
+                {name: '重庆', value: 458}
+            ];
+
+            var data8 = [
+                {name: '安徽', value: 902},
+                {name: '北京', value: 443},
+                {name: '福建', value: 755},
+                {name: '甘肃', value: 791},
+                {name: '广东', value: 1305},
+                {name: '广西', value: 534},
+                {name: '贵州', value: 380},
+                {name: '海南', value: 135},
+                {name: '河北', value: 1294},
+                {name: '河南', value: 841},
+                {name: '黑龙江', value: 690},
+                {name: '湖北', value: 990},
+                {name: '湖南', value: 1326},
+                {name: '吉林', value: 600},
+                {name: '江苏', value: 1191},
+                {name: '江西', value: 683},
+                {name: '辽宁', value: 767},
+                {name: '内蒙古', value: 398},
+                {name: '宁夏', value: 142},
+                {name: '青海', value: 131},
+                {name: '山东', value: 2060},
+                {name: '山西', value: 683},
+                {name: '陕西', value: 1032},
+                {name: '上海', value: 319},
+                {name: '四川', value: 1663},
+                {name: '天津', value: 287},
+                {name: '西藏', value: 104},
+                {name: '新疆', value: 369},
+                {name: '云南', value: 488},
+                {name: '浙江', value: 1249},
+                {name: '重庆', value: 537}
+            ];
+
+            var data9 = [
+                {name: '安徽', value: 1013},
+                {name: '北京', value: 346},
+                {name: '福建', value: 558},
+                {name: '甘肃', value: 397},
+                {name: '广东', value: 1325},
+                {name: '广西', value: 570},
+                {name: '贵州', value: 755},
+                {name: '海南', value: 229},
+                {name: '河北', value: 1535},
+                {name: '河南', value: 1595},
+                {name: '黑龙江', value: 911},
+                {name: '湖北', value: 960},
+                {name: '湖南', value: 2123},
+                {name: '吉林', value: 735},
+                {name: '江苏', value: 1473},
+                {name: '江西', value: 1607},
+                {name: '辽宁', value: 840},
+                {name: '内蒙古', value: 615},
+                {name: '宁夏', value: 168},
+                {name: '青海', value: 111},
+                {name: '山东', value: 2439},
+                {name: '山西', value: 885},
+                {name: '陕西', value: 662},
+                {name: '上海', value: 331},
+                {name: '四川', value: 1903},
+                {name: '天津', value: 186},
+                {name: '西藏', value: 43},
+                {name: '新疆', value: 466},
+                {name: '云南', value: 913},
+                {name: '浙江', value: 1520},
+                {name: '重庆', value: 900}
+            ];
+            var geoCoordMap = {
+                '安徽':[117.27,31.86],
+                '北京':[116.40,39.90],
+                '福建':[119.30,26.08],
+                '甘肃':[103.82,36.07],
+                '广东':[113.27,23.13],
+                '广西':[108.37,22.82],
+                '贵州':[106.63,26.65],
+                '海南':[110.32,20.03],
+                '河北':[114.52,38.05],
+                '河南':[113.62,34.75],
+                '黑龙江':[126.53,45.80],
+                '湖北':[114.30,30.60],
+                '湖南':[112.93,28.23],
+                '吉林':[125.32,43.90],
+                '江苏':[118.78,32.07],
+                '江西':[115.85,28.68],
+                '宁夏':[106.28,38.47],
+                '内蒙古':[111.73,40.83],
+                '辽宁':[123.38,41.8],
+                '青海':[101.78,36.62],
+                '山东':[116.98,36.67],
+                '山西':[112.55,37.87],
+                '陕西':[108.93,34.27],
+                '上海':[121.47,31.23],
+                '四川':[104.07,30.67],
+                '天津':[117.20,39.12],
+                '西藏':[91.13,29.65],
+                '新疆':[87.62,43.82],
+                '云南':[102.72,25.05],
+                '浙江':[120.15,30.28],
+                '重庆':[106.55,29.57]
+            };
+
+            var convertData = function (data) {
+                var res = [];
+                for (var i = 0; i < data.length; i++) {
+                    var geoCoord = geoCoordMap[data[i].name];
+                    if (geoCoord) {
+                        res.push({
+                            name: data[i].name,
+                            value: geoCoord.concat(data[i].value)
+                        });
+                    }
+                }
+                return res;
+            };
+
+            function renderItem(params, api) {
+                var coords = [
+                    [116.7,39.53],
+                    [103.73,36.03],
+                    [112.91,27.87],
+                    [120.65,28.01],
+                    [119.57,39.95]
+                ];
+                var points = [];
+                for (var i = 0; i < coords.length; i++) {
+                    points.push(api.coord(coords[i]));
+                }
+                var color = api.visual('color');
+
+                return {
+                    type: 'polygon',
+                    shape: {
+                        points: echarts.graphic.clipPointsByRect(points, {
+                            x: params.coordSys.x,
+                            y: params.coordSys.y,
+                            width: params.coordSys.width,
+                            height: params.coordSys.height
+                        })
+                    },
+                    style: api.style({
+                        fill: color,
+                        stroke: echarts.color.lift(color)
+                    })
+                }
+            };
+            var mapOption = {
+                baseOption: {
+                    // timeline: {
+                    //     axisType: 'category',
+                    //     show: true,
+                    //     autoPlay: true,
+                    //     playInterval: 1000,
+                    //     data: ['98']
+                    // },
+                    bmap: {
+                    center: [104.114129, 37.550339],
+                    zoom: 5,
+                    roam: false,
+                    mapStyle: {
+                        styleJson: [
+                                {
+                                    "featureType": "water",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#044161"
+                                    }
+                                },
+                                {
+                                    "featureType": "land",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#004981"
+                                    }
+                                },
+                                {
+                                    "featureType": "boundary",
+                                    "elementType": "geometry",
+                                    "stylers": {
+                                        "color": "#064f85"
+                                    }
+                                },
+                                {
+                                    "featureType": "railway",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "highway",
+                                    "elementType": "geometry",
+                                    "stylers": {
+                                        "color": "#004981"
+                                    }
+                                },
+                                {
+                                    "featureType": "highway",
+                                    "elementType": "geometry.fill",
+                                    "stylers": {
+                                        "color": "#005b96",
+                                        "lightness": 1
+                                    }
+                                },
+                                {
+                                    "featureType": "highway",
+                                    "elementType": "labels",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "arterial",
+                                    "elementType": "geometry",
+                                    "stylers": {
+                                        "color": "#004981"
+                                    }
+                                },
+                                {
+                                    "featureType": "arterial",
+                                    "elementType": "geometry.fill",
+                                    "stylers": {
+                                        "color": "#00508b"
+                                    }
+                                },
+                                {
+                                    "featureType": "poi",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "green",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#056197",
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "subway",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "manmade",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "local",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "arterial",
+                                    "elementType": "labels",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "boundary",
+                                    "elementType": "geometry.fill",
+                                    "stylers": {
+                                        "color": "#029fd4"
+                                    }
+                                },
+                                {
+                                    "featureType": "building",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#1a5787"
+                                    }
+                                },
+                                {
+                                    "featureType": "label",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    timeline: {
+                        axisType: 'category',
+                        show: true,
+                        autoPlay: false,
+                        playInterval: 1000,
+                        data: ['2008','2009','2010','2011','2012','2013','2014','2015','2016']
+
+                    },
+
+                        title: {
+                        text: '2008年-2016年全国金融机构数量增长趋势(不包含港澳台)',
+                        left: 'center',
+                        textStyle: {
+                            color: '#fff'
+                        }
+                },
+                        series : [
+                            {
+                                name: '该省金融机构变化数目',
+                                type: 'scatter',
+                                coordinateSystem: 'bmap',
+                                label: {
+                                    normal: {
+                                        formatter: '{b}',
+                                        position: 'right',
+                                        show: false
+                                    },
+                                    emphasis: {
+                                        show: true
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        color: '#ddb926'
+                                    }
+                                }
+                            }
+                        ],
+                        tooltip : {
+                        trigger: 'item'
+                    }
+                },
+                options:[
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data1),
+                                symbolSize: function (val) {
+                                    return val[2] / 10;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data2),
+                                symbolSize: function (val) {
+                                    return val[2] / 50;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data3),
+                                symbolSize: function (val) {
+                                    return val[2] / 30;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data4),
+                                symbolSize: function (val) {
+                                    return val[2] / 50;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data5),
+                                symbolSize: function (val) {
+                                    return val[2] / 100;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data6),
+                                symbolSize: function (val) {
+                                    return val[2] / 50;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data7),
+                                symbolSize: function (val) {
+                                    return val[2] / 50;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data8),
+                                symbolSize: function (val) {
+                                    return val[2] / 50;
+                                }
+
+                            }
+                        ]
+                    },
+                    {
+                            series : [
+                            {
+
+                                data: convertData(data9),
+                                symbolSize: function (val) {
+                                    return val[2] / 50;
+                                }
+
+                            }
+                        ]
+                    },
+                ]
+            };
+            if (mapOption && typeof mapOption === "object") {
+                myChart.setOption(mapOption, true);
+            }
+       </script>
+   </body>
+</html>

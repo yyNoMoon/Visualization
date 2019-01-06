@@ -1,0 +1,19 @@
+.recommand{
+    width:50%;
+    text-align:left;
+    margin:20px 10%;
+}
+
+.fl{
+    float: left;
+}
+
+.table tr td a:link {color:black;}
+.table tr td a:visited {color:black;}
+.table tr td a:hover {color:#0ba1e4;}
+
+
+.table th tr td a{
+    text-decoration:none;
+    line-height:2em;
+}
